@@ -249,6 +249,32 @@
   #define TFT_DRIVER                        ILI9488
   #define TFT_BUFFER_SIZE                   14400
   #define ILI9488_ORIENTATION               ILI9488_MADCTL_MX | ILI9488_MADCTL_MV
+
+#elif ENABLED(TFT_320x240) //TFT32/28
+  #define TFT_RESET_PIN                     PC6
+  #define TFT_BACKLIGHT_PIN                 PD13
+
+  #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
+  #define FSMC_CS_PIN                       PD7
+  #define FSMC_RS_PIN                       PD11
+  #define FSMC_DMA_DEV                      DMA2
+  #define FSMC_DMA_CHANNEL               DMA_CH5
+
+  #define TOUCH_CS_PIN                      PA7   // SPI2_NSS
+  #define TOUCH_SCK_PIN                     PB13  // SPI2_SCK
+  #define TOUCH_MISO_PIN                    PB14  // SPI2_MISO
+  #define TOUCH_MOSI_PIN                    PB15  // SPI2_MOSI
+
+  #define TFT_DRIVER                        ILI9341
+  #define TFT_BUFFER_SIZE                   14400
+ 
+  // YV for normal screen mounting (FLSUN QQ-S)
+  //#define ILI9341_ORIENTATION  ILI9341_MADCTL_MY | ILI9341_MADCTL_MV
+  // XV for 180° rotated screen mounting (FLSUN Q5)
+  #define ILI9341_ORIENTATION  ILI9341_MADCTL_MX | ILI9341_MADCTL_MV
+
+  #define ILI9341_COLOR_RGB
+
 #endif
 
 #define HAS_SPI_FLASH                       1
@@ -259,3 +285,20 @@
   #define W25QXX_MISO_PIN                   PB14
   #define W25QXX_SCK_PIN                    PB13
 #endif
+
+// SOFTWARE UART PINS
+
+#define X_SERIAL_TX_PIN                   PA10
+#define X_SERIAL_RX_PIN                   PA10
+    
+#define Y_SERIAL_TX_PIN                   PA9
+#define Y_SERIAL_RX_PIN                   PA9
+    
+#define Z_SERIAL_TX_PIN                   PC7
+#define Z_SERIAL_RX_PIN                   PC7
+
+#define E0_SERIAL_TX_PIN                  PC13
+#define E0_SERIAL_RX_PIN                  PC13
+
+// Reduce baud rate to improve software serial reliability
+#define TMC_BAUD_RATE 19200
