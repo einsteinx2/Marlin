@@ -106,13 +106,15 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
+// NOTE: Pins TX - D2 and RX - D1 on AUX-1 are where the TFT screen was originally connected but are also used by the USB port
 #define SERIAL_PORT 0
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-//#define SERIAL_PORT_2 -1
+// NOTE: Pins TX - D16 and RX - D17 on EXP2 for the internal TFT screen so it doesn't conflict with the USB port
+#define SERIAL_PORT_2 2
 
 /**
  * This setting determines the communication speed of the printer.
