@@ -494,10 +494,15 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
-  // Sidewinder X1
+  // Sidewinder X1 (from PID tuning, causes big overshoot on initial temp)
   #define DEFAULT_Kp 11.70
   #define DEFAULT_Ki 0.72
   #define DEFAULT_Kd 47.67
+
+  // Sidewinder X1
+  // #define DEFAULT_Kp 14.58
+  // #define DEFAULT_Ki 1.14
+  // #define DEFAULT_Kd 46.57
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
